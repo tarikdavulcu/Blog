@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "MenuDetayi";
+    Layout = "~/Areas/Tarik/Views/Shared/_LayoutPage.cshtml";
+}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Menu Detayı</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Menu Detayı
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+
+                    @{
+                        if (Model.Count > 0)
+                        {
+                            foreach (var menu in Model)
+                            {
+                                <form name="mainForm" id="mainForm" action="/Admin/MenuGuncelle/@menu.MenuID" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label>Adi</label>
+                                        <input class="form-control" placeholder="Menu Adı" name="txtAdi" type="text" id="txtAdi" value="@menu.Adi">
+                                    </div><div class="form-group">
+                                        <label>Aciklama</label>
+                                        <input class="form-control" placeholder="Açıklama" name="txtAciklama" type="text" valitade id="txtAciklama" value="@menu.Aciklama">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Link</label>
+                                        <input class="form-control" placeholder="Link" name="txtLink" type="text" valitade id="txtLink" value="@menu.Link">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sıra No</label>
+                                        <input class="form-control" placeholder="Sıra No" name="txtSiraNo" type="text" valitade id="txtSiraNo" value="@menu.SiraNo">
+                                    </div>
+
+                                    <button class="btn btn-success" name="gonder" id="gonder">Güncelle</button>
+
+                                </form>
+                            }
+
+                        }
+                        else
+                        {
+                            <form name="mainForm" id="mainForm" action="/Admin/YeniMenu" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label>Adi</label>
+                                    <input class="form-control" placeholder="Menu Adı" name="txtAdi" type="text" id="txtAdi">
+                                </div><div class="form-group">
+                                    <label>Aciklama</label>
+                                    <input class="form-control" placeholder="Açıklama" name="txtAciklama" type="text" valitade id="txtAciklama">
+                                </div>
+                                <div class="form-group">
+                                    <label>Link</label>
+                                    <input class="form-control" placeholder="Link" name="txtLink" type="text" valitade id="txtLink">
+                                </div>
+                                <div class="form-group">
+                                    <label>Sıra No</label>
+                                    <input class="form-control" placeholder="Sıra No" name="txtSiraNo" type="text" valitade id="txtSiraNo">
+                                </div>
+
+                                <button class="btn btn-success" name="gonder" id="gonder">Kaydet</button>
+
+                            </form>
+                        }
+
+
+                    }
+
+
+                    <!-- /.table-responsive -->
+                    <div class="well">
+                        <h4>Tablo Bilgileri</h4>
+                        <p>DataTables is a very flexible</p>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /#page-wrapper -->
+<!-- DataTables JavaScript -->
+

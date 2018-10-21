@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    @{
+
+        @Html.Action("Header", "Blog");
+    }
+
+    <title>Tarık Davulcu - @ViewBag.Title</title>
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico">
+    
+    
+</head>
+<body>
+
+    @{
+
+        @Html.Action("Menu", "Blog");
+    }
+    <!-- Main Content -->
+    @RenderBody()
+    <hr>
+    @{
+
+        @Html.Action("Footer", "Blog");
+    }
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="~/Content/js/clean-blog.min.js"></script>
+</body>
+</html>

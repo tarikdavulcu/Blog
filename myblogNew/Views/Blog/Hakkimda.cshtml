@@ -1,0 +1,42 @@
+﻿
+
+@model IEnumerable<myblogNew.Models.SiteAyarlari>
+
+@{
+    foreach (var item in Model)
+    {
+
+        ViewBag.Title = @item.SiteHakkimda;
+    }
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+
+@foreach (var item in Model)
+{
+
+    <header class="masthead" style="background-image: url('@item.SiteHakkimdaResim')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>@item.SiteHakkimda</h1>
+                        <span class="subheading">@item.SiteHakkimdaAltBaslik</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+            @item.SiteHakkimdaAciklama
+            </div>
+        </div>
+    </div>
+
+
+}
+

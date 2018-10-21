@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Site";
+    Layout = "~/Areas/Tarik/Views/Shared/_LayoutPage.cshtml";
+}
+@model IEnumerable<myblogNew.Models.SiteAyarlari>
+
+
+
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Site Bilgileri</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Site Bilgileri
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <p> <a href="/Tarik/Admin/SiteDetayi" class="btn btn-warning nav-link">Yeni Site Bilgileri</a></p>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Site Ayar ID</th>
+                                <th>Site Adı</th>
+                                <th>Site Anasayfa</th>
+                                <th>Anasayfa Altbaşlık</th>
+                                <th>Anasayfa Resim</th>
+                                <th>Copyright</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>Düzenle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="odd gradeX">
+                                    <td>@item.SiteAyarID</td>
+                                    <td>@item.SiteAdi</td>
+                                    <td>@item.SiteAnasayfa</td>
+                                    <td>@item.SiteAnasayfaAltBaslik</td>
+                                    <td>@item.SiteAnasayfaResim</td>
+                                    <td>@item.SiteCopyright</td>
+                                    <td>@item.SiteFacebook</td>
+                                    <td>@item.SiteFavicon</td>
+                                    <td>@item.SiteGithub</td>
+                                    <td>@item.SiteHakkimda</td>
+                                    <td>@item.SiteHakkimdaAciklama</td>
+                                    <td>@item.SiteHakkimdaAltBaslik</td>
+                                    <td>@item.SiteHakkimdaResim</td>
+                                    <td>@item.SiteIletisim</td>
+                                    <td>@item.SiteIletisimAciklama</td>
+                                    <td>@item.SiteIletisimAltBaslik</td>
+                                    <td>@item.SiteIletisimResim</td>
+                                    <td>@item.SiteInstagram</td>
+                                    <td>@item.SiteLinkedin</td>
+                                    <td>@item.SiteLinki</td>
+                                    <td>@item.SiteLogo</td>
+                                    <td>@item.SiteTitle</td>
+                                    <td>@item.SiteTwitter</td>
+                                    <td><a href="/Tarik/Admin/SiteDetayi/@item.SiteAyarID" class="btn btn-info" id='@item.SiteAyarID'>Düzenle</a></td>
+                                    <td><a href="/Tarik/Admin/Site/@item.SiteAyarID" class="btn btn-danger" id='@item.SiteAyarID'>Sil</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <!-- /.table-responsive -->
+                    <div class="well">
+                        <h4>Tablo Bilgilendirmesi</h4>
+                        <p>DataTables is a very flexible</p>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /#page-wrapper -->
+<!-- DataTables JavaScript -->

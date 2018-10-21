@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Detayi";
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+@model IEnumerable<myblogNew.Models.Blog>
+
+@foreach (var item in Model)
+{
+   
+        <header class="masthead" style="background-image: url('../../../@item.Resim')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>@item.Baslik</h1>
+                        <span class="subheading">@item.AltBaslik</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <p>@Html.Raw(item.Icerik)
+
+
+                </div>
+            </div>
+        </div>
+    </article>
+}
+
+

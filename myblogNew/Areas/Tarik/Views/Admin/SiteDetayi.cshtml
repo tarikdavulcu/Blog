@@ -1,0 +1,221 @@
+﻿
+@{
+    ViewBag.Title = "SiteDetayi";
+    Layout = "~/Areas/Tarik/Views/Shared/_LayoutPage.cshtml";
+}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Site Detayı</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Site Detayı
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+
+                    @{
+                        if (Model.Count > 0)
+                        {
+                            foreach (var site in Model)
+                            {
+                                <form name="mainForm" id="mainForm" action="/Admin/SiteGuncelle/@site.SiteAyarID" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label>Site Adı</label>
+                                        <input class="form-control" placeholder="Site Adı" name="txtAdi" type="text" id="txtAdi" value="@site.SiteAdi">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Anasayfa</label>
+                                        <input class="form-control" placeholder="Anasayfa" name="txtMail" type="text" valitade id="txtMail" value="@site.SiteAnasayfa">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Logo</label>
+                                        <input class="form-control" placeholder="Logo" name="txtLogo" type="text" valitade id="txtLogo" value="@site.SiteLogo">
+                                    </div><div class="form-group">
+                                        <label>Favicon</label>
+                                        <input class="form-control" placeholder="Favicon" name="txtFavicon" type="text" valitade id="txtFavicon" value="@site.SiteFavicon">
+                                    </div><div class="form-group">
+                                        <label>Title</label>
+                                        <input class="form-control" placeholder="Title" name="txtTitle" type="text" valitade id="txtTitle" value="@site.SiteTitle">
+                                    </div><div class="form-group">
+                                        <label>Twitter</label>
+                                        <input class="form-control" placeholder="Twitter" name="txtTwitter" type="text" valitade id="txtTwitter" value="@site.SiteTwitter">
+                                    </div><div class="form-group">
+                                        <label>Facebook</label>
+                                        <input class="form-control" placeholder="Facebook" name="txtFacebook" type="text" valitade id="txtFacebook" value="@site.SiteFacebook">
+                                    </div><div class="form-group">
+                                        <label>Instagram</label>
+                                        <input class="form-control" placeholder="Instagram" name="txtInstagram" type="text" valitade id="txtInstagram" value="@site.SiteInstagram">
+                                    </div><div class="form-group">
+                                        <label>Github</label>
+                                        <input class="form-control" placeholder="Github" name="txtGithub" type="text" valitade id="txtGithub" value="@site.SiteGithub">
+                                    </div><div class="form-group">
+                                        <label>Linkedin</label>
+                                        <input class="form-control" placeholder="Linkedin" name="txtLinkedin" type="text" valitade id="txtLinkedin" value="@site.SiteLinkedin">
+                                    </div><div class="form-group">
+                                        <label>Copyright</label>
+                                        <input class="form-control" placeholder="Copyright" name="txtCopyright" type="text" valitade id="txtCopyright" value="@site.SiteCopyright">
+                                    </div><div class="form-group">
+                                        <label>Anasayfa Resim</label>
+                                        <input class="form-control" placeholder="Anasayfa Resim" name="txtAnasayfaResim" type="text" valitade id="txtAnasayfaResim" value="@site.SiteAnasayfaResim">
+                                    </div><div class="form-group">
+                                        <label>Anasayfa Alt Başlık</label>
+                                        <input class="form-control" placeholder="Anasayfa" name="txtAnasayfaAlt" type="text" valitade id="txtAnasayfaAlt" value="@site.SiteAnasayfaAltBaslik">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Hakkımda Resim</label>
+                                        <input class="form-control" placeholder="Hakkımda Resim" name="txtHakkimdaResim" type="text" valitade id="txtHakkimdaResim" value="@site.SiteHakkimdaResim">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Hakkımda</label>
+                                        <input class="form-control" placeholder="Hakkımda" name="txtHakkimda" type="text" valitade id="txtHakkimda" value="@site.SiteHakkimda">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Hakkımda Alt Başlık</label>
+                                        <input class="form-control" placeholder="Hakkımda Alt Başlık" name="txtHakkimdaAlt" type="text" valitade id="txtHakkimdaAlt" value="@site.SiteHakkimdaAltBaslik">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Hakkımda Açıklama</label>
+                                        <input class="form-control" placeholder="Hakkımda Açıklama" name="txtHakkimdaAciklama" type="text" valitade id="txtHakkimdaAciklama" value="@site.SiteHakkimdaAciklama">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>İletişim Resim</label>
+                                        <input class="form-control" placeholder="İletişim Resim" name="txtIletisimResim" type="text" valitade id="txtIletisimResim" value="@site.SiteIletisimResim">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>İletişim</label>
+                                        <input class="form-control" placeholder="İletişim" name="txtIletisim" type="text" valitade id="txtIletisim" value="@site.SiteIletisim">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>İletişim Alt Başlık</label>
+                                        <input class="form-control" placeholder="İletişim Alt Başlık" name="txtIletisimAlt" type="text" valitade id="txtIletisimAlt" value="@site.SiteIletisimAltBaslik">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>İletişim Açıklama</label>
+                                        <input class="form-control" placeholder="İletişim Açıklama" name="txtIletisimAciklama" type="text" valitade id="txtIletisimAciklama" value="@site.SiteIletisimAciklama">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Site Linki</label>
+                                        <input class="form-control" placeholder="Site Linki" name="txtSiteLinki" type="text" valitade id="txtSiteLinki" value="@site.SiteLinki">
+                                    </div>
+
+                                    <button class="btn btn-success" name="gonder" id="gonder">Güncelle</button>
+
+                                </form>
+                            }
+
+                        }
+                        else
+                        {
+                            <form name="mainForm" id="mainForm" action="/Admin/YeniSite" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label>Site Adı</label>
+                                    <input class="form-control" placeholder="Site Adı" name="txtAdi" type="text" id="txtAdi">
+                                </div>
+                                <div class="form-group">
+                                    <label>Anasayfa</label>
+                                    <input class="form-control" placeholder="Anasayfa" name="txtMail" type="text" valitade id="txtMail">
+                                </div>
+                                <div class="form-group">
+                                    <label>Logo</label>
+                                    <input class="form-control" placeholder="Logo" name="txtLogo" type="text" valitade id="txtLogo">
+                                </div><div class="form-group">
+                                    <label>Favicon</label>
+                                    <input class="form-control" placeholder="Favicon" name="txtFavicon" type="text" valitade id="txtFavicon">
+                                </div><div class="form-group">
+                                    <label>Title</label>
+                                    <input class="form-control" placeholder="Title" name="txtTitle" type="text" valitade id="txtTitle">
+                                </div><div class="form-group">
+                                    <label>Twitter</label>
+                                    <input class="form-control" placeholder="Twitter" name="txtTwitter" type="text" valitade id="txtTwitter">
+                                </div><div class="form-group">
+                                    <label>Facebook</label>
+                                    <input class="form-control" placeholder="Facebook" name="txtFacebook" type="text" valitade id="txtFacebook">
+                                </div><div class="form-group">
+                                    <label>Instagram</label>
+                                    <input class="form-control" placeholder="Instagram" name="txtInstagram" type="text" valitade id="txtInstagram">
+                                </div><div class="form-group">
+                                    <label>Github</label>
+                                    <input class="form-control" placeholder="Github" name="txtGithub" type="text" valitade id="txtGithub">
+                                </div><div class="form-group">
+                                    <label>Linkedin</label>
+                                    <input class="form-control" placeholder="Linkedin" name="txtLinkedin" type="text" valitade id="txtLinkedin">
+                                </div><div class="form-group">
+                                    <label>Copyright</label>
+                                    <input class="form-control" placeholder="Copyright" name="txtCopyright" type="text" valitade id="txtCopyright">
+                                </div><div class="form-group">
+                                    <label>Anasayfa Resim</label>
+                                    <input class="form-control" placeholder="Anasayfa Resim" name="txtAnasayfaResim" type="text" valitade id="txtAnasayfaResim">
+                                </div><div class="form-group">
+                                    <label>Anasayfa Alt Başlık</label>
+                                    <input class="form-control" placeholder="Anasayfa" name="txtAnasayfaAlt" type="text" valitade id="txtAnasayfaAlt">
+                                </div>
+                                <div class="form-group">
+                                    <label>Hakkımda Resim</label>
+                                    <input class="form-control" placeholder="Hakkımda Resim" name="txtHakkimdaResim" type="text" valitade id="txtHakkimdaResim">
+                                </div>
+                                <div class="form-group">
+                                    <label>Hakkımda</label>
+                                    <input class="form-control" placeholder="Hakkımda" name="txtHakkimda" type="text" valitade id="txtHakkimda">
+                                </div>
+                                <div class="form-group">
+                                    <label>Hakkımda Alt BAşlık</label>
+                                    <input class="form-control" placeholder="Hakkımda Alt Başlık" name="txtHakkimdaAlt" type="text" valitade id="txtHakkimdaAlt">
+                                </div>
+                                <div class="form-group">
+                                    <label>Hakkımda Açıklama</label>
+                                    <input class="form-control" placeholder="Hakkımda Açıklama" name="txtHakkimdaAciklama" type="text" valitade id="txtHakkimdaAciklama">
+                                </div>
+                                <div class="form-group">
+                                    <label>İletişim Resim</label>
+                                    <input class="form-control" placeholder="İletişim Resim" name="txtIletisimResim" type="text" valitade id="txtIletisimResim">
+                                </div>
+                                <div class="form-group">
+                                    <label>İletişim</label>
+                                    <input class="form-control" placeholder="İletişim" name="txtIletisim" type="text" valitade id="txtIletisim">
+                                </div>
+                                <div class="form-group">
+                                    <label>İletişim Alt Başlık</label>
+                                    <input class="form-control" placeholder="İletişim Alt Başlık" name="txtIletisimAlt" type="text" valitade id="txtIletisimAlt">
+                                </div>
+                                <div class="form-group">
+                                    <label>İletişim Açıklama</label>
+                                    <input class="form-control" placeholder="İletişim Açıklama" name="txtIletisimAciklama" type="text" valitade id="txtIletisimAciklama">
+                                </div>
+                                <div class="form-group">
+                                    <label>Site Linki</label>
+                                    <input class="form-control" placeholder="Site Linki" name="txtMail" type="text" valitade id="txtSiteLinki">
+                                </div>
+
+                                <button class="btn btn-success" name="gonder" id="gonder">Kaydet</button>
+
+                            </form>
+                        }
+
+
+                    }
+
+
+                    <!-- /.table-responsive -->
+                    <div class="well">
+                        <h4>Tablo Bilgileri</h4>
+                        <p>DataTables is a very flexible</p>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /#page-wrapper -->
+<!-- DataTables JavaScript -->

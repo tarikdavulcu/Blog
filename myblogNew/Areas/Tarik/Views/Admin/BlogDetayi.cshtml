@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "BlogDetayi";
+    Layout = "~/Areas/Tarik/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Blog Detayı</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Blog Detayı
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#txtIcerik').summernote({
+                                height: 280,
+                                minHeight: null,
+                                maxHeight: null,
+                                focus: false
+                            });
+                        });
+                    </script>
+
+                    @{
+                        if (Model.Count > 0)
+                        {
+                            foreach (var blog in Model)
+                            {
+                                <form name="mainForm" id="mainForm" action="/Admin/BlogGuncelle/@blog.BlogID" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label>Başlık</label>
+                                        <input class="form-control" placeholder="Blog Başlıgı" name="txtAdi" type="text" id="txtAdi" value="@blog.Baslik">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Alt Başlık</label>
+                                        <input class="form-control" placeholder="Alt Başlık" name="txtMail" type="text" valitade id="txtMail" value="@blog.AltBaslik">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>İçerik</label>
+                                        <textarea  class="form-control" placeholder="İçerik" name="txtIcerik" type="text" id="txtIcerik" >
+                                        @Html.Raw(blog.Icerik)
+                                        </textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Seo Link</label>
+                                        <input class="form-control" placeholder="Seo Link" name="txtSeo" type="text" valitade id="txtSeo" value="@blog.SeoLink">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Resim</label>
+                                        <img  id="resim" src="../../../@blog.Resim"/>
+                                        <input class="form-control" placeholder="Resim" name="txtResim" type="file" id="txtResim" >
+                                    </div>
+
+                                    <button class="btn btn-success" name="gonder" id="gonder">Güncelle</button>
+
+                                </form>
+                            }
+
+                        }
+                        else
+                        {
+                            <form name="mainForm" id="mainForm" action="/Admin/YeniBlog" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label>Başlık</label>
+                                    <input class="form-control" placeholder="Blog Başlıgı" name="txtAdi" type="text" id="txtAdi">
+                                </div>
+                                <div class="form-group">
+                                    <label>Alt Başlık</label>
+                                    <input class="form-control" placeholder="Alt Başlık" name="txtMail" type="text" valitade id="txtMail">
+                                </div>
+                                <div class="form-group">
+                                    <label>İçerik</label>
+                                    <textarea class="form-control" placeholder="İçerik" name="txtIcerik" type="text" id="txtIcerik">
+                                    </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Seo Link</label>
+                                    <input class="form-control" placeholder="Seo Link" name="txtSeo" type="text" valitade id="txtSeo">
+                                </div>
+                                <div class="form-group">
+                                    <label>Resim</label>
+                                    <input class="form-control" placeholder="Resim" name="txtResim" type="file" valitade id="txtResim">
+                                </div>
+
+                                <button class="btn btn-success" name="gonder" id="gonder">Kaydet</button>
+
+                            </form>
+                        }
+
+
+                    }
+
+
+                    <!-- /.table-responsive -->
+                    <div class="well">
+                        <h4>Tablo Bilgileri</h4>
+                        <p>DataTables is a very flexible</p>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /#page-wrapper -->
+<!-- DataTables JavaScript -->

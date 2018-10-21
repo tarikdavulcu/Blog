@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage.cshtml";
+
+}
+@model IEnumerable<myblogNew.Models.Blog>
+
+@foreach (var item in ViewBag.ayarlar)
+{
+    <header class="masthead" style="background-image: url('@item.SiteAnasayfaResim')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>@item.SiteAnasayfa</h1>
+                        <span class="subheading">@item.SiteAnasayfaAltBaslik</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-8 col-md-10 mx-auto">
+            @foreach (var datam in Model)
+            {
+                <div class="post-preview">
+                    <a href="/Blog/Detayi/@datam.SeoLink">
+                        <h2 class="post-title">
+                            @datam.Baslik
+                        </h2>
+                        <h3 class="post-subtitle">
+                            @datam.AltBaslik
+                        </h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted by
+                        <a href="/Blog/Index/@datam.Kullanicilar.KullaniciAdi">@datam.Kullanicilar.KullaniciAdi</a>
+                        on  @datam.PostTarihi
+                    </p>
+                </div>
+                <hr>
+            }
+
+            <!-- Pager -->
+            <div class="clearfix">
+                <a class="btn btn-primary float-right" href="/Blog/Index/All">Hepsi &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
