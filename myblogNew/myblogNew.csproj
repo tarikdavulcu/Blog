@@ -1763,6 +1763,7 @@
     <Content Include="Content\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="script.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
