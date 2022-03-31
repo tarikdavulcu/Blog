@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Yönetim Paneli</title>
+    <title>Yönetici Paneli</title>
     <!-- Bootstrap Core CSS -->
     <link href="~/Areas/Tarik/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -14,12 +14,11 @@
     <!-- Custom CSS -->
     <link href="~/Areas/Tarik/Content/dist/css/sb-admin-2.css" rel="stylesheet">
     <!-- Morris Charts CSS -->
-    
     <!-- Custom Fonts -->
     <link href="~/Areas/Tarik/Content/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">    <!-- DataTables CSS -->
-<link href="~/Areas/Tarik/Content/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
-<!-- DataTables Responsive CSS -->
-<link href="~/Areas/Tarik/Content/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">  
+    <link href="~/Areas/Tarik/Content/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="~/Areas/Tarik/Content/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
     <script src="~/Areas/Tarik/Content/vendor/jquery/jquery.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,7 +27,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="~/Content/img/favicon.ico">
-    
 </head>
 <body>
     <div id="wrapper">
@@ -45,12 +43,15 @@
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
-                
                 <!-- /.dropdown -->
-                
                 <!-- /.dropdown -->
-                
                 <!-- /.dropdown -->
+                <li class="dropdown" title="Siteye Git">
+                    <a href="/" target="_blank">
+                        <i class="fa fa-eye fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <!-- /.dropdown-user -->
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -62,9 +63,9 @@
                         <li>
                             <a href="/Tarik/Admin/Site"><i class="fa fa-gear fa-fw"></i> Ayarlar</a>
                         </li>
+
                         <li class="divider"></li>
                         <li>
-                            
                             <a href="/Tarik/Login/LogOff"><i class="fa fa-sign-out fa-fw"></i> Çıkış</a>
                         </li>
                     </ul>
@@ -90,18 +91,6 @@
                         <li>
                             <a href="/Tarik/Admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                        @*<li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Little Chart</a>
-                                </li>
-                                <li>
-                                    <a href="morris.html">Morris.js Charts</a>
-                                </li>
-                            </ul>
-                            
-                        </li>*@
                         <li>
                             <a href="/Tarik/Admin/Kullanicilar"><i class="fa fa-user fa-fw"></i> Kullanıcılar</a>
                         </li>
@@ -120,11 +109,9 @@
                                 <li>
                                     <a href="/Tarik/Admin/Site">Site</a>
                                 </li>
-                                
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                      
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -142,10 +129,8 @@
     <script src="~/Areas/Tarik/Content/vendor/metisMenu/metisMenu.min.js"></script>
     <!-- Morris Charts JavaScript -->
     <script src="~/Areas/Tarik/Content/vendor/raphael/raphael.min.js"></script>
-    
     <!-- Custom Theme JavaScript -->
     <script src="~/Areas/Tarik/Content/dist/js/sb-admin-2.js"></script>
-
     <script src="~/Areas/Tarik/Content/vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="~/Areas/Tarik/Content/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="~/Areas/Tarik/Content/vendor/datatables-responsive/dataTables.responsive.js"></script>
@@ -155,11 +140,11 @@
     <script src="~/Areas/Tarik/Content/summer/summernote.min.js"></script>
     <script src="~/Areas/Tarik/Content/summer/summernote-bs4.min.js"></script>
     <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
+        $(document).ready(function () {
+            $('#dataTables-example').DataTable({
+                responsive: true
+            });
         });
-    });
     </script>
 </body>
 </html>

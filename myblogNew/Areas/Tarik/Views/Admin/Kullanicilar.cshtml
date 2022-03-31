@@ -1,14 +1,8 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Kullanicilar";
     Layout = "~/Areas/Tarik/Views/Shared/_LayoutPage.cshtml";
 }
-
 @model IEnumerable<myblogNew.Models.Kullanicilar>
-
-
-
-
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
@@ -40,11 +34,10 @@
                             @foreach (var item in Model)
                             {
                                 <tr class="odd gradeX">
-                                    
                                     <td>@item.KullaniciID</td>
                                     <td>@item.KullaniciAdi</td>
                                     <td>@item.Mail</td>
-                                    <td><a href="/Tarik/Admin/KullaniciDetayi/@item.KullaniciID" class="btn btn-info" id='@item.KullaniciID' >Düzenle</a></td>
+                                    <td><a href="/Tarik/Admin/KullaniciDetayi/@item.KullaniciID" class="btn btn-info" id='@item.KullaniciID'>Düzenle</a></td>
                                     <td><a href="/Tarik/Admin/Kullanicilar/@item.KullaniciID" class="btn btn-danger" id='@item.KullaniciID'>Sil</a></td>
                                 </tr>
                             }
@@ -53,7 +46,7 @@
                     <!-- /.table-responsive -->
                     <div class="well">
                         <h4>Tablo Bilgilendirmesi</h4>
-                        <p>DataTables is a very flexible</p>
+                        <p>Kullanıcı Listeleme Güncelleme Silme Sayfasıdır.</p>
                     </div>
                 </div>
                 <!-- /.panel-body -->
@@ -63,9 +56,6 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-
 </div>
 <!-- /#page-wrapper -->
 <!-- DataTables JavaScript -->
-
-

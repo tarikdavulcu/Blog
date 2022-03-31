@@ -6,12 +6,11 @@ using System.Web.Mvc;
 
 namespace myblogNew.Areas.Tarik.Models
 {
-    public class security:ActionFilterAttribute
-    {     
-
+    public class security : ActionFilterAttribute
+    {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (! HttpContext.Current.User.Identity.IsAuthenticated)
+            if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 if (!HttpContext.Current.Response.IsRequestBeingRedirected)
                 {

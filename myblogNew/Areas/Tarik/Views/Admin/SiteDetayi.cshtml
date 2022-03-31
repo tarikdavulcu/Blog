@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "SiteDetayi";
     Layout = "~/Areas/Tarik/Views/Shared/_LayoutPage.cshtml";
 }
@@ -19,7 +18,6 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-
                     @{
                         if (Model.Count > 0)
                         {
@@ -104,12 +102,9 @@
                                         <label>Site Linki</label>
                                         <input class="form-control" placeholder="Site Linki" name="txtSiteLinki" type="text" valitade id="txtSiteLinki" value="@site.SiteLinki">
                                     </div>
-
                                     <button class="btn btn-success" name="gonder" id="gonder">Güncelle</button>
-
                                 </form>
                             }
-
                         }
                         else
                         {
@@ -192,21 +187,11 @@
                                     <label>Site Linki</label>
                                     <input class="form-control" placeholder="Site Linki" name="txtMail" type="text" valitade id="txtSiteLinki">
                                 </div>
-
                                 <button class="btn btn-success" name="gonder" id="gonder">Kaydet</button>
-
                             </form>
                         }
-
-
                     }
-
-
                     <!-- /.table-responsive -->
-                    <div class="well">
-                        <h4>Tablo Bilgileri</h4>
-                        <p>DataTables is a very flexible</p>
-                    </div>
                 </div>
                 <!-- /.panel-body -->
             </div>
@@ -215,7 +200,6 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-
 </div>
 <!-- /#page-wrapper -->
 <!-- DataTables JavaScript -->

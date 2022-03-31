@@ -19,9 +19,8 @@ namespace myblogNew.Areas.Tarik.Models.DAL
             }
             else
             {
-                return "yok";
+                return "Hata...";
             }
-
         }
     }
 }

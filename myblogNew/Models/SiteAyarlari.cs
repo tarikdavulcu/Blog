@@ -28,5 +28,10 @@ namespace myblogNew.Models
         public string SiteIletisimAciklama { get; set; }
         public string SiteLinki { get; set; }
         public string SiteAdi { get; set; }
+        public string SiteAnasayfaEtiket { get; set; }
+        public string SiteKisiProfil { get; set; }
+        public string SiteKisiEPosta { get; set; }
+        public string SiteKisiTel { get; set; }
+        public string SiteKisiAdres { get; set; }
     }
 }

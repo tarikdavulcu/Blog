@@ -9,11 +9,12 @@ namespace myblogNew.Areas.Tarik.Controllers
 {
     public class LoginController : Controller
     {
+        myblogNew.Models.myBlogContext data = new myblogNew.Models.myBlogContext();
         // GET: Tarik/Login
         [AllowAnonymous]
         public ActionResult Index()
         {
-
+            ViewBag.ayarlar = data.SiteAyarlaris.ToList();
             return View();
         }
         [AllowAnonymous]
@@ -21,11 +22,10 @@ namespace myblogNew.Areas.Tarik.Controllers
         public ActionResult LoginControl(FormCollection login)
         {
             Models.DAL.login l = new Models.DAL.login();
-           string result= l.GetLogin(login["email"].ToString(), login["password"].ToString());
+            string result = l.GetLogin(login["email"].ToString(), login["password"].ToString());
 
-            if (result!="yok")
+            if (result != "yok")
             {
-
                 return Redirect("/Tarik/Admin/Index");
             }
             else
@@ -33,13 +33,11 @@ namespace myblogNew.Areas.Tarik.Controllers
                 return Redirect("/Tarik/Login/Index");
             }
         }
-
-
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
             return Redirect("/Tarik/Login");
         }
-
+        
     }
 }

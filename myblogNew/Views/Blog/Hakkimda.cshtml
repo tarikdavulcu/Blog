@@ -1,7 +1,4 @@
-﻿
-
-@model IEnumerable<myblogNew.Models.SiteAyarlari>
-
+﻿@model IEnumerable<myblogNew.Models.SiteAyarlari>
 @{
     foreach (var item in Model)
     {
@@ -10,11 +7,8 @@
     }
     Layout = "~/Views/_LayoutPage.cshtml";
 }
-
-
 @foreach (var item in Model)
 {
-
     <header class="masthead" style="background-image: url('@item.SiteHakkimdaResim')">
         <div class="overlay"></div>
         <div class="container">
@@ -28,15 +22,11 @@
             </div>
         </div>
     </header>
-
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-            @item.SiteHakkimdaAciklama
+                @item.SiteHakkimdaAciklama
             </div>
         </div>
     </div>
-
-
 }
-

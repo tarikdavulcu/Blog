@@ -2,8 +2,8 @@
 
 @foreach (var item in Model)
 {
-        <!-- Footer -->
-    <footer>
+    <!-- Footer -->
+    <!--<footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
@@ -41,10 +41,18 @@
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="https://plus.google.com/u/0/111528113112696789711" target="_blank">
+                            <a href="https://play.google.com/store/apps/dev?id=8380144787631985326" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-google fa-stack-1x fa-inverse"></i>
+                                    <i class="fab fa-android fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="http://tarikdavulcu.herokuapp.com/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
                         </li>
@@ -65,10 +73,10 @@
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="http://www.tarikdavulcu.com/Tarik-Davulcu-Cv.pdf" target="_blank" title="Cv">
+                            <a href="/Tarik-Davulcu-Cv.pdf" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-file-download fa-stack-1x fa-inverse"></i>
+                                    <i class="fa fa-file-pdf fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
                         </li>
@@ -78,5 +86,31 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer>-->
+
+
+
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="copyright-box">
+                        <p class="copyright">&copy; Copyright <strong>@item.SiteCopyright</strong>. Tüm Hakları Saklıdır</p>
+                        <!--<div class="credits">-->
+                            <!--
+                              All the links in the footer should remain intact.
+                              You can delete the links only if you purchased the pro version.
+                              Licensing information: https://bootstrapmade.com/license/
+                              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
+                            -->
+                            <!--Designed by <a href="@item.SiteLinki">@item.SiteCopyright</a>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer><!-- End  Footer -->
+
 }

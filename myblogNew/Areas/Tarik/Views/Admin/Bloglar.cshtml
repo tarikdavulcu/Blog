@@ -37,13 +37,11 @@
                             @foreach (var item in Model)
                             {
                                 <tr class="odd gradeX">
-
                                     <td>@item.BlogID</td>
                                     <td>@item.Baslik</td>
                                     <td>@item.AltBaslik</td>
-                                    <td>@item.PostTarihi</td>
+                                    <td>@Convert.ToDateTime(item.PostTarihi).ToString("dd/MM/yyyy H:mm")</td>
                                     <td>@item.SeoLink</td>
-                                    
                                     <td><a href="/Tarik/Admin/BlogDetayi/@item.BlogID" class="btn btn-info" id='@item.BlogID'>Düzenle</a></td>
                                     <td><a href="/Tarik/Admin/Bloglar/@item.BlogID" class="btn btn-danger" id='@item.BlogID'>Sil</a></td>
                                 </tr>
@@ -53,7 +51,7 @@
                     <!-- /.table-responsive -->
                     <div class="well">
                         <h4>Tablo Bilgilendirmesi</h4>
-                        <p>DataTables is a very flexible</p>
+                        <p>Blog Listeleme Güncelleme Silme Sayfasıdır.</p>
                     </div>
                 </div>
                 <!-- /.panel-body -->
@@ -63,8 +61,6 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-
 </div>
 <!-- /#page-wrapper -->
 <!-- DataTables JavaScript -->
-

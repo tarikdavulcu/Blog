@@ -15,7 +15,6 @@ namespace myblogNew.Areas.Tarik.Controllers
     {
         myblogNew.Models.myBlogContext data = new myblogNew.Models.myBlogContext();
         // GET: Tarik/Admin
-
         public ActionResult Index()
         {
             int[] count = new int[4];
@@ -25,6 +24,7 @@ namespace myblogNew.Areas.Tarik.Controllers
             count[3] = data.SiteAyarlaris.Count();
             return View(count);
         }
+        
         public ActionResult Kullanicilar(string id)
         {
             if (id == null || id == "")
@@ -49,15 +49,6 @@ namespace myblogNew.Areas.Tarik.Controllers
             }
             return View(data.Kullanicilars.Where(p => p.KullaniciID == idd).ToList());
         }
-        //[HttpPost]
-        //public ActionResult KullaniciSil(FormCollection kullanici)
-        //{
-        //    int a = int.Parse(RouteData.Values["id"].ToString());
-        //    var ku = data.Kullanicilars.Where(p => p.KullaniciID == a).FirstOrDefault();
-        //    data.Kullanicilars.Remove(ku);
-        //    data.SaveChanges();
-        //    return Redirect("/Tarik/Admin/Kullanicilar");
-        //}
         [HttpPost]
         public ActionResult KullaniciGuncelle(FormCollection kullanici)
         {
@@ -78,8 +69,6 @@ namespace myblogNew.Areas.Tarik.Controllers
             data.SaveChanges();
             return Redirect("/Tarik/Admin/Kullanicilar");
         }
-
-
 
         public ActionResult Bloglar(string id)
         {
@@ -114,8 +103,6 @@ namespace myblogNew.Areas.Tarik.Controllers
             var k = data.Kullanicilars.Where(p => p.Mail == HttpContext.User.Identity.Name).FirstOrDefault();
             string filePath = "", type = "";
             string yeniAd = blog["txtAdi"].ToString().ToLower().Replace(" ", "-").Replace("ö", "o").Replace("Ö", "o").Replace("Ü", "u").Replace("ü", "u").Replace("ı", "i").Replace("I", "i").Replace("İ", "i").Replace("Ş", "s").Replace("ş", "s").Replace("Ğ", "g").Replace("ğ", "g");
-
-
             int a = int.Parse(RouteData.Values["id"].ToString());
             var bu = data.Blogs.Where(p => p.BlogID == a).FirstOrDefault();
             bu.Baslik = blog["txtAdi"].ToString();
@@ -123,8 +110,6 @@ namespace myblogNew.Areas.Tarik.Controllers
             bu.Icerik = blog["txtIcerik"].ToString();
             bu.SeoLink = blog["txtSeo"].ToString();
             bu.KullaniciID = k.KullaniciID;
-
-
             if (Request.Files.Count > 0)
             {
                 foreach (string file in Request.Files)
@@ -142,7 +127,6 @@ namespace myblogNew.Areas.Tarik.Controllers
                     }
                 }
             }
-
             data.SaveChanges();
             return Redirect("/Tarik/Admin/Bloglar");
         }
@@ -154,7 +138,6 @@ namespace myblogNew.Areas.Tarik.Controllers
             var k = data.Kullanicilars.Where(p => p.Mail == HttpContext.User.Identity.Name).FirstOrDefault();
             string filePath = "", type = "";
             string yeniAd = blog["txtAdi"].ToString().ToLower().Replace(" ", "-").Replace("ö", "o").Replace("Ö", "o").Replace("Ü", "u").Replace("ü", "u").Replace("ı", "i").Replace("I", "i").Replace("İ", "i").Replace("Ş", "s").Replace("ş", "s").Replace("Ğ", "g").Replace("ğ", "g");
-
             if (Request.Files.Count > 0)
             {
                 foreach (string file in Request.Files)
@@ -177,12 +160,10 @@ namespace myblogNew.Areas.Tarik.Controllers
             bu.Icerik = blog["txtIcerik"].ToString();
             bu.SeoLink = blog["txtSeo"].ToString();
             bu.Resim = "Content/img/BlogResim/" + yeniAd + type;
+            bu.PostTarihi = DateTime.Now;
             bu.KullaniciID = k.KullaniciID;
             data.Blogs.Add(bu);
             data.SaveChanges();
-
-
-
             return Redirect("/Tarik/Admin/Bloglar");
         }
 
@@ -194,7 +175,6 @@ namespace myblogNew.Areas.Tarik.Controllers
             int h = 0;
             h = orjinalResim.Height;
             double oran = Convert.ToDouble(w) / Convert.ToDouble(h);
-
             if (oran <= 1 && w > genislik)
             {
                 w = genislik;
@@ -206,8 +186,6 @@ namespace myblogNew.Areas.Tarik.Controllers
                 w = Convert.ToInt32(Math.Round(decimal.Parse(h.ToString()) * yukseklik));
             }
             return new Bitmap(orjinalResim, genislik, yukseklik);
-            //return new Bitmap(orjinalResim, w, h);
-
         }
 
         public ActionResult Mesajlar(string id)
@@ -249,7 +227,6 @@ namespace myblogNew.Areas.Tarik.Controllers
         [HttpPost]
         public ActionResult YeniMesaj(FormCollection mesaj)
         {
-
             Mesajlar me = new myblogNew.Models.Mesajlar();
             me.Ad = mesaj["txtAdi"].ToString();
             me.Mail = mesaj["txtMail"].ToString();
@@ -259,9 +236,6 @@ namespace myblogNew.Areas.Tarik.Controllers
             data.SaveChanges();
             return Redirect("/Tarik/Admin/Mesajlar");
         }
-
-
-
         public ActionResult Menu(string id)
         {
             if (id == null || id == "")
@@ -310,9 +284,6 @@ namespace myblogNew.Areas.Tarik.Controllers
             data.SaveChanges();
             return Redirect("/Tarik/Admin/Menu");
         }
-
-
-
         public ActionResult Site(string id)
         {
             if (id == null || id == "")

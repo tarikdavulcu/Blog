@@ -14,5 +14,12 @@ namespace myblogNew
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+
+            Response.Redirect("~/Blog/Error");
+
+        }
     }
 }

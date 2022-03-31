@@ -1,14 +1,16 @@
-﻿
+﻿@using CaptchaMvc.HtmlHelpers
+@using CaptchaMvc;
+@model IEnumerable<myblogNew.Models.SiteAyarlari>
 @{
-    ViewBag.Title = "Iletisim";
+    foreach (var item in Model)
+    {
+
+        ViewBag.Title = @item.SiteIletisim;
+    }
     Layout = "~/Views/_LayoutPage.cshtml";
 }
-
-@model IEnumerable<myblogNew.Models.SiteAyarlari>
-
 @foreach (var item in Model)
 {
-
     <header class="masthead" style="background-image: url('@item.SiteIletisimResim')">
         <div class="overlay"></div>
         <div class="container">
@@ -22,56 +24,55 @@
             </div>
         </div>
     </header>
-
-
-
-
-
-
     <!-- Main Content -->
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
+                @if (TempData["Ret"] != null)
+                {
+                    <p><strong>@TempData["Ret"]</strong></p>
+                }
                 <p>@item.SiteIletisimAciklama</p>
                 <form name="sentMessage" id="contactForm" action="/Blog/SendMail" method="post" enctype="multipart/form-data">
+                    @Html.ValidationSummary(true)
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
                             <label>Name</label>
-                            <input type="text" class="form-control" placeholder="Ad Soyad" name="name" required data-validation-required-message="Please enter your name.">
+                            <input type="text" class="form-control" placeholder="Ad Soyad" name="name" required data-validation-required-message="Ad soyad giriniz">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
                             <label>Email Address</label>
-                            <input type="email" class="form-control" placeholder="E-Posta" name="email" required data-validation-required-message="Please enter your email address.">
+                            <input type="email" class="form-control" placeholder="E-Posta" name="email" required data-validation-required-message="E-posta adresi giriniz">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Phone Number</label>
-                            <input type="tel" class="form-control" placeholder="Telefon" name="phone" required data-validation-required-message="Please enter your phone number.">
+                            <input type="tel" class="form-control" placeholder="Telefon" name="phone" required data-validation-required-message="Telefon no giriniz">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
                             <label>Message</label>
-                            <textarea rows="5" class="form-control" placeholder="Mesajınız" name="message" required data-validation-required-message="Please enter a message."></textarea>
+                            <textarea rows="5" class="form-control" placeholder="Mesajınız" name="message" required data-validation-required-message="Mesajınızı yazınız"></textarea>
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
-                    
-                    <br>
                     <div id="success"></div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary" id="sendMessageButton">Gönder</button>
-                    </div>
+                    @Html.MathCaptcha()
+                    <p class="Error">  @ViewBag.ErrMessage </p>
+                    <p>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" id="sendMessageButton">Gönder</button>
+                        </div>
                 </form>
             </div>
         </div>
     </div>
     <hr>
-    
 }

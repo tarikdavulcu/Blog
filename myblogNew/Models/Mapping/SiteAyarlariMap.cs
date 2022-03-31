@@ -42,6 +42,11 @@ namespace myblogNew.Models.Mapping
             this.Property(t => t.SiteIletisimAciklama).HasColumnName("SiteIletisimAciklama");
             this.Property(t => t.SiteLinki).HasColumnName("SiteLinki");
             this.Property(t => t.SiteAdi).HasColumnName("SiteAdi");
+            this.Property(t => t.SiteAnasayfaEtiket).HasColumnName("SiteAnasayfaEtiket");
+            this.Property(t => t.SiteKisiProfil).HasColumnName("SiteKisiProfil");
+            this.Property(t => t.SiteKisiEPosta).HasColumnName("SiteKisiEPosta");
+            this.Property(t => t.SiteKisiTel).HasColumnName("SiteKisiTel");
+            this.Property(t => t.SiteKisiAdres).HasColumnName("SiteKisiAdres");
         }
     }
 }

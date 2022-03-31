@@ -1,16 +1,28 @@
-﻿
-
-@model IEnumerable<myblogNew.Models.SiteAyarlari>
+﻿@model IEnumerable<myblogNew.Models.SiteAyarlari>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<!-- Bootstrap core CSS -->
-<link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom fonts for this template -->
-<link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-<!-- Custom styles for this template -->
+@foreach (var item in Model)
+{
+    <meta name="description" content="@item.SiteLogo">
+    <meta name="author" content="@item.SiteLogo">
+}
 
-<link href="~/Content/css/clean-blog.min.css" rel="stylesheet" />
+<!-- Bootstrap core CSS -->
+<!--<link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+<!-- Custom fonts for this template -->
+<!--<link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>-->
+<!-- Custom styles for this template -->
+<!--<link href="~/Content/css/clean-blog.min.css" rel="stylesheet" />-->
+
+
+
+<!-- Vendor CSS Files -->
+<link href="~/Content/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/Content/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="~/Content/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="~/Content/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+<!-- Template Main CSS File -->
+<link href="~/Content/assets/css/style.css" rel="stylesheet">
