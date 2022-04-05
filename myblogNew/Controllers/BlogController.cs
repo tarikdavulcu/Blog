@@ -1,4 +1,4 @@
-﻿using CaptchaMvc.HtmlHelpers;
+using CaptchaMvc.HtmlHelpers;
 using Microsoft.Web.Helpers;
 using myblogNew.Models;
 using SendGrid;
