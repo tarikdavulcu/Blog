@@ -64,7 +64,7 @@ namespace myblogNew.Controllers
             //}
             //}
             
-                var apiKey = "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";
+                var apiKey = "";
                 var client = new SendGridClient(apiKey);
                 var from = new EmailAddress("info@tarikdavulcu.com", "Star Web Design Studio");
                 var subject = "Tarık Davulcu | Siteden Gelen | İletişim Formu";
