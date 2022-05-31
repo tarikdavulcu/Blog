@@ -1,0 +1,16 @@
+{
+  "background_color": "#229ac8",
+  "description": "Tarık Davulcu",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "webapp/icon/tarikdavulcu.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "name": "Tarık Davulcu",
+  "short_name": "Tarık Davulcu",
+  "start_url": "."
+  
+}
