@@ -23,20 +23,20 @@ namespace myblogNew.Controllers
     {
       ViewBag.ayarlar = context.SiteAyarlaris.ToList();
 
-      var data = context.Blogs.ToList();
+      var data = context.Blogs.OrderByDescending(i=>i.BlogID).ToList();
 
       if (id != null && id != "All")
       {
-        data = context.Blogs.Where(p => p.Kullanicilar.KullaniciAdi == id).ToList();
+        data = context.Blogs.Where(p => p.Kullanicilar.KullaniciAdi == id).OrderByDescending(i => i.BlogID).ToList();
       }
       else if (id == null)
       {
-        data = context.Blogs.Take(2).ToList();
-      }
+        data = context.Blogs.OrderByDescending(i => i.BlogID).ToList();
+            }
       else if (id == "All")
       {
-        data = context.Blogs.ToList();
-      }
+        data = context.Blogs.OrderByDescending(i => i.BlogID).ToList();
+            }
       return View(data);
     }
 
