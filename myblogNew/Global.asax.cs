@@ -16,9 +16,9 @@ namespace myblogNew
         }
         protected void Application_Error(object sender, EventArgs e)
         {
-            Exception ex = Server.GetLastError();
+            //Exception ex = Server.GetLastError();
 
-            Response.Redirect("~/Blog/Error");
+            //Response.Redirect("~/Blog/Error");
 
         }
     }

@@ -15,10 +15,11 @@ using System.Web.Mvc;
 
 namespace myblogNew.Controllers
 {
-  public class BlogController : Controller
+  public class BlogController : MyController
   {
     myBlogContext context = new myBlogContext();
     // GET: Blog
+
     public ActionResult Index(string id)
     {
       ViewBag.ayarlar = context.SiteAyarlaris.ToList();
@@ -40,7 +41,15 @@ namespace myblogNew.Controllers
       return View(data);
     }
 
-    public ActionResult Iletisim()
+        [AcceptVerbs(HttpVerbs.Post | HttpVerbs.Get)]
+
+        public ActionResult ChangeLanguage(string lang)
+        {
+            new LanguageMang().SetLanguage(lang);
+            return RedirectToAction("Index", "Blog");
+        }
+
+        public ActionResult Iletisim()
     {
       return View(context.SiteAyarlaris.ToList());
     }

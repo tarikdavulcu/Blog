@@ -1775,6 +1775,8 @@
     <Compile Include="Areas\Tarik\Models\security.cs" />
     <Compile Include="Areas\Tarik\TarikAreaRegistration.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\LanguageMang.cs" />
+    <Compile Include="Controllers\MyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

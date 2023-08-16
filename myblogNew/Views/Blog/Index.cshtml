@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/_LayoutPage.cshtml";
+    var culture = Request.Cookies["culture"];
 }
 @model IEnumerable<myblogNew.Models.Blog>
 @foreach (var item in ViewBag.ayarlar)
