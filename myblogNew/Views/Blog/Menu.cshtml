@@ -81,7 +81,7 @@
                             foreach (var i in myblogNew.Controllers.LanguageMang.AvailableLanguages)
                             {
                                 //Html.ActionLink(i.LanguageFullName, "ChangeLanguage", "Blog", new { lang = i.LanguageCultureName }, null);
-                                <li>@Html.ActionLink(i.LanguageFullName, "ChangeLanguage", "Blog", new { lang = i.LanguageCultureName }, null);</li>
+                                <li>@Html.ActionLink(i.LanguageFullName, "ChangeLanguage", "Blog", new { lang = i.LanguageCultureName }, null)</li>
                                 @*<li><a href="@Html.ActionLink("ChangeLanguage", "Blog", new { lang = i.LanguageCultureName })">i.LanguageCultureName</a></li>*@
                             }
                         }
