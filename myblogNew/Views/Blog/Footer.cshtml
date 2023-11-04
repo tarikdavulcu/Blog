@@ -1,116 +1,252 @@
 ﻿@model IEnumerable<myblogNew.Models.SiteAyarlari>
 
-@foreach (var item in Model)
-{
-    <!-- Footer -->
-    <!--<footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <ul class="list-inline text-center">
-                        <li class="list-inline-item">
-                            <a href="@item.SiteTwitter" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="@item.SiteFacebook" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="@item.SiteInstagram" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="@item.SiteGithub" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://play.google.com/store/apps/dev?id=8380144787631985326" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-android fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="http://tarikdavulcu.herokuapp.com/" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.youtube.com/channel/UCsI-otiNDW0L1A7tG_UNhIQ" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://api.whatsapp.com/send?phone=905378970797&text=Projemle%20ilgili%20teklif%20almak%20istiyorum." target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-whatsapp fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="/Tarik-Davulcu-Cv.pdf" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-file-pdf fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
+@{ string lang = null;
+    HttpCookie langCookie = Request.Cookies["culture"];
+    if (langCookie != null)
+    {
+        lang = langCookie.Value;
+    }
+    else
+    {
+        var userLanguage = Request.UserLanguages;
+        var userLang = userLanguage != null ? userLanguage[0] : "";
+        if (userLang != "")
+        {
+            lang = userLang;
+        }
+        else
+        {
+            lang = myblogNew.Controllers.LanguageMang.GetDefaultLanguage();
+        }
+    }
+    if (lang == "en")
+    {
+        foreach (var item in Model)
+        {<!-- Footer -->
+                                <!--<footer>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-8 col-md-10 mx-auto">
+                                                <ul class="list-inline text-center">
+                                                    <li class="list-inline-item">
+                                                        <a href="@item.SiteTwitter" target="_blank">
+                                                            <span class="fa-stack fa-lg">
+                                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="@item.SiteFacebook" target="_blank">
+                                                            <span class="fa-stack fa-lg">
+                                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="@item.SiteInstagram" target="_blank">
+                                                            <span class="fa-stack fa-lg">
+                                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="@item.SiteGithub" target="_blank">
+                                                            <span class="fa-stack fa-lg">
+                                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://play.google.com/store/apps/dev?id=8380144787631985326" target="_blank">
+                                                            <span class="fa-stack fa-lg">
+                                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                                <i class="fab fa-android fa-stack-1x fa-inverse"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="http://tarikdavulcu.herokuapp.com/" target="_blank">
+                                                            <span class="fa-stack fa-lg">
+                                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                                <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://www.youtube.com/channel/UCsI-otiNDW0L1A7tG_UNhIQ" target="_blank">
+                                                            <span class="fa-stack fa-lg">
+                                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                                <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="https://api.whatsapp.com/send?phone=905378970797&text=Projemle%20ilgili%20teklif%20almak%20istiyorum." target="_blank">
+                                                            <span class="fa-stack fa-lg">
+                                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                                <i class="fab fa-whatsapp fa-stack-1x fa-inverse"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="/Tarik-Davulcu-Cv.pdf" target="_blank">
+                                                            <span class="fa-stack fa-lg">
+                                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                                <i class="fa fa-file-pdf fa-stack-1x fa-inverse"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
 
-                    </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your @item.SiteCopyright</p>
-                </div>
-            </div>
-        </div>
-    </footer>-->
+                                                </ul>
+                                                <p class="copyright text-muted">Copyright &copy; Your @item.SiteCopyrightEng</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </footer>-->
 
 
 
 
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="copyright-box">
-                        <p class="copyright">&copy; Copyright <strong>@item.SiteCopyright</strong>. Tüm Hakları Saklıdır</p>
-                        <!--<div class="credits">-->
-                            <!--
-                              All the links in the footer should remain intact.
-                              You can delete the links only if you purchased the pro version.
-                              Licensing information: https://bootstrapmade.com/license/
-                              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
-                            -->
-                            <!--Designed by <a href="@item.SiteLinki">@item.SiteCopyright</a>
-                        </div>-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer><!-- End  Footer -->
+                                                    <footer>
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="copyright-box">
+                                                                        <p class="copyright">&copy; Copyright <strong>@item.SiteCopyrightEng</strong></p>
+                                                                        <!--<div class="credits">-->
+                                                                        <!--
+                                                                          All the links in the footer should remain intact.
+                                                                          You can delete the links only if you purchased the pro version.
+                                                                          Licensing information: https://bootstrapmade.com/license/
+                                                                          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
+                                                                        -->
+                                                                        <!--Designed by <a href="@item.SiteLinki">@item.SiteCopyrightEng</a>
+                                                                        </div>-->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </footer><!-- End  Footer -->}
 
-}
+                                            }
+                                            else if (lang == "tr")
+                                            {
+
+                                                foreach (var item in Model)
+                                                {<!-- Footer -->
+                                                                        <!--<footer>
+                                                                            <div class="container">
+                                                                                <div class="row">
+                                                                                    <div class="col-lg-8 col-md-10 mx-auto">
+                                                                                        <ul class="list-inline text-center">
+                                                                                            <li class="list-inline-item">
+                                                                                                <a href="@item.SiteTwitter" target="_blank">
+                                                                                                    <span class="fa-stack fa-lg">
+                                                                                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                                                                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                                                                                    </span>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <a href="@item.SiteFacebook" target="_blank">
+                                                                                                    <span class="fa-stack fa-lg">
+                                                                                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                                                                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                                                                                    </span>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <a href="@item.SiteInstagram" target="_blank">
+                                                                                                    <span class="fa-stack fa-lg">
+                                                                                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                                                                                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                                                                                                    </span>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <a href="@item.SiteGithub" target="_blank">
+                                                                                                    <span class="fa-stack fa-lg">
+                                                                                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                                                                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                                                                                    </span>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <a href="https://play.google.com/store/apps/dev?id=8380144787631985326" target="_blank">
+                                                                                                    <span class="fa-stack fa-lg">
+                                                                                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                                                                                        <i class="fab fa-android fa-stack-1x fa-inverse"></i>
+                                                                                                    </span>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <a href="http://tarikdavulcu.herokuapp.com/" target="_blank">
+                                                                                                    <span class="fa-stack fa-lg">
+                                                                                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                                                                                        <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
+                                                                                                    </span>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <a href="https://www.youtube.com/channel/UCsI-otiNDW0L1A7tG_UNhIQ" target="_blank">
+                                                                                                    <span class="fa-stack fa-lg">
+                                                                                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                                                                                        <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                                                                                                    </span>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <a href="https://api.whatsapp.com/send?phone=905378970797&text=Projemle%20ilgili%20teklif%20almak%20istiyorum." target="_blank">
+                                                                                                    <span class="fa-stack fa-lg">
+                                                                                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                                                                                        <i class="fab fa-whatsapp fa-stack-1x fa-inverse"></i>
+                                                                                                    </span>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                            <li class="list-inline-item">
+                                                                                                <a href="/Tarik-Davulcu-Cv.pdf" target="_blank">
+                                                                                                    <span class="fa-stack fa-lg">
+                                                                                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                                                                                        <i class="fa fa-file-pdf fa-stack-1x fa-inverse"></i>
+                                                                                                    </span>
+                                                                                                </a>
+                                                                                            </li>
+
+                                                                                        </ul>
+                                                                                        <p class="copyright text-muted">Copyright &copy; Your @item.SiteCopyright</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </footer>-->
+
+
+
+
+
+                                                                                            <footer>
+                                                                                                <div class="container">
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <div class="copyright-box">
+                                                                                                                <p class="copyright">&copy; Copyright <strong>@item.SiteCopyright</strong>. </p>
+                                                                                                                <!--<div class="credits">-->
+                                                                                                                <!--
+                                                                                                                  All the links in the footer should remain intact.
+                                                                                                                  You can delete the links only if you purchased the pro version.
+                                                                                                                  Licensing information: https://bootstrapmade.com/license/
+                                                                                                                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
+                                                                                                                -->
+                                                                                                                <!--Designed by <a href="@item.SiteLinki">@item.SiteCopyright</a>
+                                                                                                                </div>-->
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </footer><!-- End  Footer -->}
+
+                                                                                    } }

@@ -1,4 +1,13 @@
-﻿@foreach (var item in ViewBag.ayarlar)
-{
-    @item.SiteTitle
+﻿@{ var culture = Request.Cookies["culture"];
+    if (culture.Value == "tr")
+    {
+        foreach (var item in ViewBag.ayarlar)
+        {
+@item.SiteTitle}
 }
+else if (culture.Value == "en")
+{
+foreach (var item in ViewBag.ayarlar)
+{
+@item.SiteTitleEng}
+} }

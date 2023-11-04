@@ -23,6 +23,7 @@ namespace myblogNew.Models.Mapping
             this.Property(t => t.SiteLogo).HasColumnName("SiteLogo");
             this.Property(t => t.SiteFavicon).HasColumnName("SiteFavicon");
             this.Property(t => t.SiteTitle).HasColumnName("SiteTitle");
+            this.Property(t => t.SiteTitleEng).HasColumnName("SiteTitleEng");
             this.Property(t => t.SiteTwitter).HasColumnName("SiteTwitter");
             this.Property(t => t.SiteFacebook).HasColumnName("SiteFacebook");
             this.Property(t => t.SiteInstagram).HasColumnName("SiteInstagram");
@@ -31,6 +32,7 @@ namespace myblogNew.Models.Mapping
             this.Property(t => t.SiteCopyright).HasColumnName("SiteCopyright");
             this.Property(t => t.SiteAnasayfaResim).HasColumnName("SiteAnasayfaResim");
             this.Property(t => t.SiteAnasayfa).HasColumnName("SiteAnasayfa");
+            this.Property(t => t.SiteAnasayfaEng).HasColumnName("SiteAnasayfaEng");
             this.Property(t => t.SiteAnasayfaAltBaslik).HasColumnName("SiteAnasayfaAltBaslik");
             this.Property(t => t.SiteHakkimdaResim).HasColumnName("SiteHakkimdaResim");
             this.Property(t => t.SiteHakkimda).HasColumnName("SiteHakkimda");
@@ -42,11 +44,23 @@ namespace myblogNew.Models.Mapping
             this.Property(t => t.SiteIletisimAciklama).HasColumnName("SiteIletisimAciklama");
             this.Property(t => t.SiteLinki).HasColumnName("SiteLinki");
             this.Property(t => t.SiteAdi).HasColumnName("SiteAdi");
+            this.Property(t => t.SiteAdiEng).HasColumnName("SiteAdiEng");
             this.Property(t => t.SiteAnasayfaEtiket).HasColumnName("SiteAnasayfaEtiket");
+            this.Property(t => t.SiteAnasayfaEtiketEng).HasColumnName("SiteAnasayfaEtiketEng");
             this.Property(t => t.SiteKisiProfil).HasColumnName("SiteKisiProfil");
             this.Property(t => t.SiteKisiEPosta).HasColumnName("SiteKisiEPosta");
             this.Property(t => t.SiteKisiTel).HasColumnName("SiteKisiTel");
             this.Property(t => t.SiteKisiAdres).HasColumnName("SiteKisiAdres");
+
+            this.Property(t => t.SiteCopyrightEng).HasColumnName("SiteCopyrightEng");
+            this.Property(t => t.SiteHakkimdaAciklamaEng).HasColumnName("SiteHakkimdaEng");
+            this.Property(t => t.SiteHakkimdaAltBaslikEng).HasColumnName("SiteHakkimdaAltBaslikEng");
+            this.Property(t => t.SiteHakkimdaAciklamaEng).HasColumnName("SiteHakkimdaAciklamaEng");
+            this.Property(t => t.SiteIletisimEng).HasColumnName("SiteIletisimEng");
+            this.Property(t => t.SiteIletisimAltBaslikEng).HasColumnName("SiteIletisimAltBaslikEng");
+            this.Property(t => t.SiteIletisimAciklamaEng).HasColumnName("SiteIletisimAciklamaEng");
+            this.Property(t => t.SiteKisiProfilEng).HasColumnName("SiteKisiProfilEng");
+
         }
     }
 }
