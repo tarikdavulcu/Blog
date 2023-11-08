@@ -1,10 +1,15 @@
 using CaptchaMvc.HtmlHelpers;
+using IronBarCode;
 using Microsoft.Web.Helpers;
 using myblogNew.Models;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.ServiceModel.Syndication;
@@ -13,6 +18,8 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Net.Codecrete.QrCodeGenerator;
+using QRCoder;
 
 namespace myblogNew.Controllers
 {
@@ -195,5 +202,194 @@ namespace myblogNew.Controllers
             string plainText = Regex.Replace(htmlContent, HTML_TAG_PATTERN, string.Empty);
             return length > 0 && plainText.Length > length ? plainText.Substring(0, length) : plainText;
         }
+        public ActionResult Qr()
+        {
+          var res=  GetDatabaseQrList();
+
+            
+            //ImageGeneratedBarcode.ImageUrl = "~/GeneratedQRcodeImage/" + Path.GetFileName(filePath);
+
+
+            return View(res);
+        }
+        public List<QrModel> GetDatabaseQrList()
+        {
+            List<QrModel> list = new List<QrModel>();
+
+            // Open connection to the database
+            string conString = "Server=78.135.85.53,1444;Database=MyBlog;uid=sa;Pwd=20342034T-d?;";
+
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                con.Open();
+
+                // Set up a command with the given query and associate
+                // this with the current connection.
+                using (SqlCommand cmd = new SqlCommand("SELECT * from Qr", con))
+                {
+                    using (IDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            QrModel nq = new QrModel();
+                            nq.Id = int.Parse(dr[0].ToString());
+                            nq.Title = dr[1].ToString();
+                            nq.Desc = dr[2].ToString();
+                            nq.Stock = dr[3].ToString();
+                            nq.QrCode = dr[4].ToString();
+                            list.Add(nq);
+                        }
+                    }
+                }
+            }
+            return list;
+
+        }
+        public QrModel GetDatabaseQrDetail(int id)
+        {
+            QrModel nq = new QrModel();
+
+            // Open connection to the database
+            string conString = "Server=78.135.85.53,1444;Database=MyBlog;uid=sa;Pwd=20342034T-d?;";
+
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                con.Open();
+
+                // Set up a command with the given query and associate
+                // this with the current connection.
+                using (SqlCommand cmd = new SqlCommand("SELECT * from Qr where id="+id, con))
+                {
+                    using (IDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            nq.Id = int.Parse(dr[0].ToString());
+                            nq.Title = dr[1].ToString();
+                            nq.Desc = dr[2].ToString();
+                            nq.Stock = dr[3].ToString();
+                            nq.QrCode = dr[4].ToString();
+                        }
+                    }
+                }
+            }
+            return nq;
+
+        }
+        public ActionResult QrAdd() {
+            return View();
+        }
+        public ActionResult QrDetail(int id) {
+            
+            return View(GetDatabaseQrDetail(id));
+        }
+
+        [HttpPost]
+        public ActionResult QrAdd(FormCollection val)
+        {
+            var tit=val["Title"].ToString();
+            var desc=val["Desc"].ToString();
+            var stock=val["Stock"].ToString();
+
+
+
+            string _connStr = "Server=78.135.85.53,1444;Database=MyBlog;uid=sa;Pwd=20342034T-d?;";
+            string _query = "INSERT INTO Qr (Title,[Desc],Stock) values (@Title,@Desc,@Stock); SELECT SCOPE_IDENTITY();";
+            using (SqlConnection conn = new SqlConnection(_connStr))
+            {
+                using (SqlCommand comm = new SqlCommand())
+                {
+                    comm.Connection = conn;
+                    comm.CommandType = CommandType.Text;
+                    comm.CommandText = _query;
+                    comm.Parameters.AddWithValue("@Title", tit);
+                    comm.Parameters.AddWithValue("@Desc", desc);
+                    comm.Parameters.AddWithValue("@Stock", stock);
+                    try
+                    {
+                        conn.Open();
+                        int id = Convert.ToInt32 (comm.ExecuteScalar());
+                        
+                        conn.Close();
+                        string _queryy = "Update Qr Set QrCode=@QrCode where Id=" + id.ToString();
+                        using (SqlCommand commm = new SqlCommand())
+                        {
+                            commm.Connection = conn;
+                            commm.CommandType = CommandType.Text;
+                            commm.CommandText = _queryy;
+
+
+
+                           
+
+
+
+                            string generatebarcode = "GeneratedQRcodeImage/"+id+".png";
+                            string host = HttpContext.Request.Url.Authority.ToString();
+                            string generatebarcode2 = host+"/Blog/QrDetail/"+id;
+                            //GeneratedBarcode barcode = QRCodeWriter.CreateQrCode(generatebarcode2, 300);
+
+                            string filePath = Server.MapPath(generatebarcode);
+                             
+                            using (QRCodeGenerator qrGenerator = new QRCodeGenerator())
+                            using (QRCodeData qrCodeData = qrGenerator.CreateQrCode(generatebarcode2, QRCodeGenerator.ECCLevel.Q))
+                            using (QRCode qrCode = new QRCode(qrCodeData))
+                            {
+                                Bitmap qrCodeImage = qrCode.GetGraphic(20);
+                                qrCodeImage.Save(filePath, System.Drawing.Imaging.ImageFormat.Png);
+
+                                
+
+                                
+
+                            }
+
+                            // Styling a QR code and adding annotation text
+                            //barcode.AddBarcodeValueTextAboveBarcode();
+                            //barcode.AddBarcodeValueTextBelowBarcode();
+                            //barcode.SetMargins(10);
+                            //barcode.ChangeBarCodeColor(Color.BlueViolet);
+
+                            //Create a folder to place generated QR code
+                            var folder = Server.MapPath("/App_Data/GeneratedQRcodeImage");
+                            if (!Directory.Exists(folder))
+                            {
+                                Directory.CreateDirectory(folder);
+                            }
+                            //barcode.SaveAsPng(filePath);
+                            commm.Parameters.AddWithValue("@QrCode", generatebarcode);
+
+
+
+                            try
+                            {
+                                conn.Open();
+                                var aa = commm.ExecuteNonQuery();
+                                conn.Close();
+                            }
+                            catch(SqlException ex) { 
+                            
+                            }
+                            }
+                                return RedirectToAction("Qr", "Blog");
+                    }
+                    catch (SqlException ex)
+                    {
+                        // other codes here
+                        // do something with the exception
+                        // don't swallow it.
+                    }
+                }
+            }
+            return View();
+        }
+
+        public class QrModel { 
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Desc { get; set; }
+        public string Stock { get; set; }
+        public string QrCode { get; set; }
+    }
     }
 }
