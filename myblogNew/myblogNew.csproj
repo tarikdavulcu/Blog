@@ -495,12 +495,14 @@
     <Content Include="Content\css\clean-blog.min.css" />
     <Content Include="Content\gulpfile.js" />
     <Content Include="Content\img\about-bg.jpg" />
+    <Content Include="Content\img\BlogResim\test.png" />
     <Content Include="Content\img\contact-bg.jpg" />
     <Content Include="Content\img\favicon.ico" />
     <Content Include="Content\img\home-bg.jpg" />
     <Content Include="Content\img\post-bg.jpg" />
     <Content Include="Content\img\post-sample-image.jpg" />
     <Content Include="Content\index.html" />
+    <Content Include="Content\js\app.js" />
     <Content Include="Content\js\clean-blog.js" />
     <Content Include="Content\js\clean-blog.min.js" />
     <Content Include="Content\js\contact_me.js" />
@@ -1896,8 +1898,17 @@
     <Content Include="Content\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="images\icons\icon-128x128.png" />
+    <Content Include="images\icons\icon-144x144.png" />
+    <Content Include="images\icons\icon-152x152.png" />
+    <Content Include="images\icons\icon-192x192.png" />
+    <Content Include="images\icons\icon-384x384.png" />
+    <Content Include="images\icons\icon-512x512.png" />
+    <Content Include="images\icons\icon-72x72.png" />
+    <Content Include="images\icons\icon-96x96.png" />
     <Content Include="RecaptchaNet.Readme.txt" />
     <Content Include="script.sql" />
+    <Content Include="serviceWorker.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2112,6 +2123,7 @@
     <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.js.map" />
     <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.min.js.map" />
     <Content Include="Content\assets\vendor\typed.js\typed.min.js.map" />
+    <Content Include="Content\js\manifest.json" />
     <None Include="Properties\PublishProfiles\blogPublish.pubxml" />
     <Content Include="Tarik-Davulcu-Cv.pdf" />
     <Content Include="Views\Blog\Title.cshtml" />
@@ -2127,7 +2139,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\img\BlogResim\" />
     <Folder Include="Content\mail\" />
   </ItemGroup>
   <PropertyGroup>

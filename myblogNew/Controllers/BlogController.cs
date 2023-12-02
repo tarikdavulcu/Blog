@@ -280,8 +280,9 @@ namespace myblogNew.Controllers
             return View();
         }
         public ActionResult QrDetail(int id) {
-            
-            return View(GetDatabaseQrDetail(id));
+            var r = GetDatabaseQrDetail(id);
+            if(r.Id == 0)  return RedirectToAction("Error");
+            else return View(GetDatabaseQrDetail(id));
         }
 
         [HttpPost]
