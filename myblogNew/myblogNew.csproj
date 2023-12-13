@@ -2128,9 +2128,6 @@
     <None Include="Properties\PublishProfiles\blogPublish.pubxml" />
     <Content Include="Tarik-Davulcu-Cv.pdf" />
     <Content Include="Views\Blog\Title.cshtml" />
-    <Content Include="Views\Blog\Qr.cshtml" />
-    <Content Include="Views\Blog\QrAdd.cshtml" />
-    <Content Include="Views\Blog\QrDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
